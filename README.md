@@ -1,4 +1,4 @@
-# abacus
+# Abacus Fun
 Abacus Simulator Kids Learning App
 
 ## Background
