@@ -24,7 +24,7 @@ With this Abacus Fun simulator, users will be able to:
 This app will consist of a screen game setting, where user can choose the free mode or challenge mode. In both modes, user can view the abacus frame with columns and rows consist of beads. At the bottom of each beads column, it will display a sum number interactively as user move the beads. On the left, there will be controls to reset the problem and input control where user can manually enter their math problems.
 
 Setting Page
-![Setting Page](wireframes/setting.jpg)
+![Setting Page](https://i.imgur.com/SLjwfCW.png)
 
 ##  Architecture and Technologies
 
