@@ -1,5 +1,10 @@
 const Bead = require('./bead');
 
+const BEAD_WIDTH = 60;
+const BEAD_HEIGHT = 40;
+const BEAD_COLOR = "rgba(133, 178, 255, 1.0)";
+const HOOVERED_BEAD_COLOR = "rgba(170, 215, 255, 1.0)";
+
 class AbacusCtrl {
 	constructor(type, beadRods) {
 		this.type = type;
@@ -9,6 +14,9 @@ class AbacusCtrl {
 		this.beadSep = this.type === 0 ? 3 : 4;
 		this.beadSpacing = 80;
 
+		this.beadWidth = BEAD_WIDTH;
+		this.beadHeight = BEAD_HEIGHT;
+		
 		this.beads = new Array();
   	};
 
@@ -18,15 +26,15 @@ class AbacusCtrl {
 
 		for (let i = 0; i < this.beadRods; i++) {
 			for (let j = 0; j < this.beadPerRod; j++) {
-				let bead = new Bead(id, j);
+				let bead = new Bead(BEAD_COLOR, BEAD_WIDTH, BEAD_HEIGHT, id);
 				bead.posX = 580 - i * this.beadSpacing;
-				bead.posY = 60 + this.beadPerRod * bead.height - j * bead.height;
+				bead.posY = 60 + this.beadPerRod * this.beadHeight - j * this.beadHeight;
 				bead.value = 1; // do we need to create function here to set value?				
 				if (j > this.beadSep) {
 					bead.posY =
 						60 +
-						this.beadPerRod * bead.height -
-						(j * bead.height + 2 * bead.height);
+						this.beadPerRod * this.beadHeight -
+						(j * this.beadHeight + 2 * this.beadHeight);
 					bead.value = 5;
 				}
 
@@ -41,21 +49,6 @@ class AbacusCtrl {
   	getBeadsCount() {
    	return this.beads.length;
   	};
-
-  	getBeadPositionX(id) {
-   	return this.beads(id).posX;
-  	};
-
-  	getBeadPositionY(id) {
-   	return this.beads(id).posY;
-	};
-
-	drawBeads(ctx) {
-   	let count = this.getBeadsCount();
-    	for (let i = 0; i < count; i++) {
-      	this.beads[i].draw(ctx);
-    	}
-  	}
 	  
 	activated(id) {
 		let rod = Math.floor(id / this.beadPerRod); // find the rod number
