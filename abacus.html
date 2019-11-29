@@ -2,17 +2,38 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Abacus Fun</title>
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/stylesheets/bg.css">
-    <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css">    
-    <script src='./dist/bundle.js'></script>
+   <meta charset="utf-8">
+   <title>Abacus Fun</title>
+   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css">
+   <link rel="stylesheet" type="text/css" href="./assets/stylesheets/bg.css">
+   <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css">
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>   
 </head>
 
 <body>
-    <div id="soroban"> </div>
+   <div id="abacus-holder">
+      <table id="abacus">         
+         
+         <tr>
+            <td data-attribute="10"></td>
+            <td data-attribute="10"></td>
+            <td data-attribute="10"></td>
+            <td data-attribute="10"></td>
+            <td data-attribute="10"></td>
+         </tr>
+         <tr>
+            <td data-attribute="1"></td>
+            <td data-attribute="1"></td>
+            <td data-attribute="1"></td>
+            <td data-attribute="1"></td>
+            <td data-attribute="1"></td>
+         </tr>
+      </table>
+      <div id="sum">0</div>
+   </div>
+   <script src='./src/abacus.js'></script>
 </body>
 
 </html>

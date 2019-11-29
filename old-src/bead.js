@@ -8,6 +8,7 @@ class Bead {
       this.height = height;
       this.id = id;
       this.isActive = false;
+      
    }
 
    elementUI(x, y, width, height, type, ref) {
