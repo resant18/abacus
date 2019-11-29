@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/abacus.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -193,22 +193,6 @@ sumFunction = function() {
   $("#sum").text(total);
 };
 
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-const Abacus = __webpack_require__(/*! ./abacus */ "./src/abacus.js");
-
-document.addEventListener('DOMContentLoaded', () => {
-    let abacus = new Abacus('soroban', 0);
-    abacus.init();
-});
 
 /***/ })
 

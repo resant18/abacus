@@ -1,24 +1,55 @@
-#abacus-holder {
+#main {
+  display: flex;
+  flex-direction: column;
+  width: 1248px;
+  margin: auto;
+  height: 100vh;
+}
+
+#question {  
+  font-weight: 700;
+  font-size: 3em;
+}
+
+#question, #abacus-holder {
     text-align: center;
+}
+
+#abacus-control {
+  
+
 }
 
 #abacus {
   height: 449px;
-  width: 1248px;
-  padding-left: 15px;
+  width: 1248px;  
   border: 17px solid wheat;
   margin: auto;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 30px;
   bottom: 0;
   right: 0;
 }
 
 #place-value {
   width: 1248px;
+  margin: auto;
   position: absolute;
-  top: 650px;
+  top: 550px;
+  /* right: 0; */
+  bottom: 0;
+  /* left: 0; */
+  padding: 0 30px;
+  font-size: 2em;
+}
+
+#place-value tr {
+
+}
+
+#place-value tr td {
+
 }
 
 #abacus tr {
@@ -54,7 +85,7 @@ box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8p
   box-shadow: none;
   
   margin-bottom: 60px;
-  margin-left: -93px;
+  margin-left: -84px;
 }
 
 #abacus td.upper {

@@ -2,7 +2,7 @@
   "name": "abacus",
   "version": "1.0.0",
   "description": "Abacus Simulator Kids Learning App",
-  "main": "index.js",
+  "main": "abacus.html",
   "directories": {
     "lib": "lib"
   },
