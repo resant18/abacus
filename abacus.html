@@ -21,6 +21,9 @@
     <script src="./src/abacus.js"></script>
   </head>
   <body onload="main()">
+    <div id="sum-holder">
+      <span id="total">Sum: 0</span>
+    </div>
     <div id="abacus-holder">
       <table id="abacus">
         <tr>
@@ -99,14 +102,14 @@
 
       <table id="place-value">
         <tr>
-          <td id="sum-ten-million">0</td>
-          <td id="sum-million">0</td>
-          <td id="sum-hundred-thousand">0</td>
-          <td id="sum-ten-thousand">0</td>
-          <td id="sum-thousand">0</td>
-          <td id="sum-hundred">0</td>
-          <td id="sum-ten">0</td>
-          <td id="sum-unit">0</td>
+          <td id="sum-ten-million" data-value="0">0</td>
+          <td id="sum-million" data-value="0">0</td>
+          <td id="sum-hundred-thousand" data-value="0">0</td>
+          <td id="sum-ten-thousand" data-value="0">0</td>
+          <td id="sum-thousand" data-value="0">0</td>
+          <td id="sum-hundred" data-value="0">0</td>
+          <td id="sum-ten" data-value="0">0</td>
+          <td id="sum-unit" data-value="0">0</td>
         </tr>
       </table>
     </div>

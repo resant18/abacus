@@ -2,19 +2,32 @@ const DATA_CURRENT = "current";
 const DATA_VALUE = "value";
 const RENDER_DELAY = 100; //in ms
 
-var sum = [];
 var total = 0;
+var beads = [];
+var sums = [];
 
 function main() {
-  var beads = document.getElementsByTagName("td");
+  beads = getBeads();
+  sums = getRowSums();
   for (var i = 0; i < beads.length; i++) {
     beads[i].onclick = moveBead;
   }
 }
 
+function getRowSums() {
+  return getTdFromTable("place-value");
+}
+
+function getBeads() {
+  return getTdFromTable("abacus", bead => !isSeparator(bead));
+}
+
+function getTdFromTable(tableId, filter = param => true) {
+  unfilteredTds = [...document.getElementById(tableId).querySelectorAll("td")];
+  return unfilteredTds.filter(bead => filter);
+}
 function moveBead(e) {
   if (isValueSet(this)) {
-    // set the element's new position:
     clearValue(this);
   } else {
     setValue(this);
@@ -48,17 +61,6 @@ function updateValue(bead, newValue) {
   updateSum(bead.dataset["sum"], bead.parentElement.children);
 }
 
-function updateSum(sumId, beads) {
-  var sum = 0;
-  for (var i = 0; i < beads.length; i++) {
-    bead = beads[i];
-    if (!isSeparator(bead)) {
-      currentValue = bead.dataset[DATA_CURRENT] || "0";
-      sum += Number(currentValue);
-    }
-  }
-  document.getElementById(sumId).innerHTML = sum;
-}
 function getNextBead(bead) {
   nextSibling = bead.nextElementSibling;
   if (isSeparator(nextSibling)) {
@@ -114,10 +116,26 @@ async function sleep(msec) {
   });
 }
 
-sumFunction = function() {
-  total = 0;
-  for (var i = 0; i < sum.length; i++) {
-    total += sum[i] << 0;
+function updateSum(sumId, beads) {
+  var sum = 0;
+  for (var i = 0; i < beads.length; i++) {
+    bead = beads[i];
+    if (!isSeparator(bead)) {
+      currentValue = bead.dataset[DATA_CURRENT] || "0";
+      sum += Number(currentValue);
+    }
   }
-  $("#sum").text(total);
-};
+  sumTd = document.getElementById(sumId);
+  sumTd.innerHTML = sum;
+  sumTd.dataset["value"] = sum;
+  updateTotalSum();
+}
+
+function updateTotalSum() {
+  total = 0;
+  for (sum of sums) {
+    value = sum.dataset["value"];
+    total = total + Number(value);
+  }
+  document.getElementById("total").innerHTML = "Sum: " + total;
+}
