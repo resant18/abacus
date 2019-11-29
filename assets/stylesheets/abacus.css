@@ -1,3 +1,7 @@
+#abacus-holder {
+    text-align: center;
+}
+
 #abacus {
   height: 449px;
   width: 1248px;
@@ -11,11 +15,13 @@
   right: 0;
 }
 
-#abacus-holder {
-    text-align: center;
+#place-value {
+  width: 1248px;
+  position: absolute;
+  top: 650px;
 }
 
-tr {
+#abacus tr {
   background-color: wheat;
   border: 1px solid tan;
   display: inline-block;
@@ -27,7 +33,7 @@ tr {
 }
 
 
-td {
+#abacus td {
   margin-left: -52px;
   height: 60px;
   width: 120px;
@@ -40,7 +46,7 @@ td {
 box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
 }
 
-td.separator {
+#abacus td.separator {
   width: 185px;
   height: 17px;
   background-color: wheat;
@@ -51,7 +57,7 @@ td.separator {
   margin-left: -93px;
 }
 
-td.upper {
+#abacus td.upper {
   position: relative;
   top: -60px;
 }
@@ -66,3 +72,4 @@ td.upper {
   margin-left: -20px;
   border: 1px solid grey;
 }
+
