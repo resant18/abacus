@@ -1,11 +1,14 @@
 #abacus {
-  height: 193px;
-  width: 75px;
+  height: 328px;
+  width: 1248px;
   padding-left: 15px;
-  border-bottom: 5px solid wheat;
+  border: 17px solid wheat;
   margin: auto;
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 #abacus-holder {
@@ -16,21 +19,22 @@ tr {
   background-color: wheat;
   border: 1px solid tan;
   display: inline-block;
-  margin-right: 20px; 
-  height: 85px;
+  margin: 0 64px; 
+  height: 247px;
   margin-bottom: -3px;
-  width: 6px;
-  padding-top: 100px;
+  width: 17px;
+  padding-top: 60px;
 }
 
+
 td {
-  margin-left: -8px;
-  height: 15px;
-  width: 20px;
+  margin-left: -52px;
+  height: 60px;
+  width: 120px;
   position: relative;
-  background-color: red;
+  background-color: brown;
   display: block;
-  border-radius: 15px;
+  border-radius: 50%;
 -webkit-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
 -moz-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
 box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
