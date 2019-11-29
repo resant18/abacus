@@ -1,5 +1,5 @@
 #abacus {
-  height: 328px;
+  height: 449px;
   width: 1248px;
   padding-left: 15px;
   border: 17px solid wheat;
@@ -20,7 +20,7 @@ tr {
   border: 1px solid tan;
   display: inline-block;
   margin: 0 64px; 
-  height: 247px;
+  height: 449px;
   margin-bottom: -3px;
   width: 17px;
   padding-top: 60px;
@@ -38,6 +38,21 @@ td {
 -webkit-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
 -moz-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
 box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
+}
+
+td.separator {
+  width: 120px;
+  height: 17px;
+  background-color: wheat;
+  border-radius:0;
+  box-shadow: none;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+td.upper {
+  position: relative;
+  top: -120px;
 }
 
 #sum {
