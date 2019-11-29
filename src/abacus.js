@@ -23,18 +23,40 @@ function moveBead(e) {
 
 function clearValue(bead) {
   var delay = 0;
-  nextSibling = bead.nextElementSibling;
+  nextSibling = getNextBead(bead);
   if (nextSibling && isValueSet(nextSibling)) {
     delay = renderDelay + clearValue(nextSibling);
   }
+  bead.dataset["state"] = 0;
   renderClearValue(bead, delay);
   return delay;
 }
 
-async function renderClearValue(bead, delay) {
-  await sleep(delay);
-  bead.style.top = "";
-  bead.dataset["state"] = 0;
+function setValue(bead, delay) {
+  var delay = 0;
+  prevSibling = getPrevBead(bead);
+  if (prevSibling && !isValueSet(prevSibling)) {
+    delay = renderDelay + setValue(prevSibling);
+  }
+  bead.dataset["state"] = bead.dataset["value"];
+  renderSetValue(bead, delay);
+  return delay;
+}
+
+function getNextBead(bead) {
+  nextSibling = bead.nextElementSibling;
+  if (nextSibling && nextSibling.className == "separator") {
+    nextSibling = undefined;
+  }
+  return nextSibling;
+}
+
+function getPrevBead(bead) {
+  prevSibling = bead.previousElementSibling;
+  if (prevSibling && prevSibling.className == "separator") {
+    prevSibling = undefined;
+  }
+  return prevSibling;
 }
 
 function isValueSet(bead) {
@@ -43,20 +65,23 @@ function isValueSet(bead) {
   return value == state;
 }
 
-function setValue(bead, delay) {
-  var delay = 0;
-  prevSibling = bead.previousElementSibling;
-  if (prevSibling && !isValueSet(prevSibling)) {
-    delay = renderDelay + setValue(prevSibling);
+async function renderClearValue(bead, delay) {
+  await sleep(delay);
+  if (bead.className == "upper") {
+    bead.style.top = -1 * bead.clientHeight + "px";
+  } else {
+    bead.style.top = "0px";
   }
-  renderSetValue(bead, delay);
-  return delay;
 }
 
 async function renderSetValue(bead, delay) {
   await sleep(delay);
-  bead.style.top = -1 * bead.clientHeight + "px";
-  bead.dataset["state"] = bead.dataset["value"];
+
+  if (bead.className == "upper") {
+    bead.style.top = "0px";
+  } else {
+    bead.style.top = -1 * bead.clientHeight + "px";
+  }
 }
 
 async function sleep(msec) {
