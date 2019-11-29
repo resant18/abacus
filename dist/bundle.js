@@ -96,36 +96,36 @@
 //jQuery + jQueryUI
 var sum = [];
 var total = 0;
+var clickMove = "-20px";
 
-// $("td").draggable(() => alert('test'));
-// $("td").click(() => alert("test"));
+function main() {
+  var beads = document.getElementsByTagName("td");
+  var i;
+  for (i = 0; i < beads.length; i++) {
+    beads[i].onclick = changeValue;
+  }
+}
 
-$("td").draggable({
-   axis: "y",
-   containment: "table",
-   cursor: "move",
-   grid: [0, 20],
-   stop: function(event, ui) {
-      sum = [];
-      $("td").each(function(i) {
-         var Stoppos = $(this).position();
-         var value = $(this).attr("data-attribute");
-         if (Stoppos.top < 100) {
-            sum.push(value);
-            sumFunction();
-         } else {
-            sumFunction();
-         }
-      });
-   }
-});
+function changeValue(e) {
+  var value = this.dataset["value"];
+  var state = this.dataset["state"];
+
+  if (state == value) {
+    // set the element's new position:
+    this.style.top = "";
+    this.dataset["state"] = 0;
+  } else {
+    this.style.top = (-1 * this.clientHeight) +"px";
+    this.dataset["state"] = value;
+  }
+}
 
 sumFunction = function() {
-   total = 0;
-   for (var i = 0; i < sum.length; i++) {
-      total += sum[i] << 0;
-   }
-   $("#sum").text(total);
+  total = 0;
+  for (var i = 0; i < sum.length; i++) {
+    total += sum[i] << 0;
+  }
+  $("#sum").text(total);
 };
 
 
