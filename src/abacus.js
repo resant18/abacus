@@ -1,13 +1,13 @@
-//jQuery + jQueryUI
+const DATA_CURRENT = "current";
+const DATA_VALUE = "value";
+const RENDER_DELAY = 100; //in ms
+
 var sum = [];
 var total = 0;
-var clickMove = "-20px";
-var renderDelay = 100;
 
 function main() {
   var beads = document.getElementsByTagName("td");
-  var i;
-  for (i = 0; i < beads.length; i++) {
+  for (var i = 0; i < beads.length; i++) {
     beads[i].onclick = moveBead;
   }
 }
@@ -25,9 +25,9 @@ function clearValue(bead) {
   var delay = 0;
   nextSibling = getNextBead(bead);
   if (nextSibling && isValueSet(nextSibling)) {
-    delay = renderDelay + clearValue(nextSibling);
+    delay = RENDER_DELAY + clearValue(nextSibling);
   }
-  bead.dataset["state"] = 0;
+  updateValue(bead, 0);
   renderClearValue(bead, delay);
   return delay;
 }
@@ -36,16 +36,32 @@ function setValue(bead, delay) {
   var delay = 0;
   prevSibling = getPrevBead(bead);
   if (prevSibling && !isValueSet(prevSibling)) {
-    delay = renderDelay + setValue(prevSibling);
+    delay = RENDER_DELAY + setValue(prevSibling);
   }
-  bead.dataset["state"] = bead.dataset["value"];
+  updateValue(bead, bead.dataset[DATA_VALUE]);
   renderSetValue(bead, delay);
   return delay;
 }
 
+function updateValue(bead, newValue) {
+  bead.dataset[DATA_CURRENT] = newValue;
+  updateSum(bead.dataset["sum"], bead.parentElement.children);
+}
+
+function updateSum(sumId, beads) {
+  var sum = 0;
+  for (var i = 0; i < beads.length; i++) {
+    bead = beads[i];
+    if (!isSeparator(bead)) {
+      currentValue = bead.dataset[DATA_CURRENT] || "0";
+      sum += Number(currentValue);
+    }
+  }
+  document.getElementById(sumId).innerHTML = sum;
+}
 function getNextBead(bead) {
   nextSibling = bead.nextElementSibling;
-  if (nextSibling && nextSibling.className == "separator") {
+  if (isSeparator(nextSibling)) {
     nextSibling = undefined;
   }
   return nextSibling;
@@ -53,21 +69,29 @@ function getNextBead(bead) {
 
 function getPrevBead(bead) {
   prevSibling = bead.previousElementSibling;
-  if (prevSibling && prevSibling.className == "separator") {
+  if (isSeparator(bead)) {
     prevSibling = undefined;
   }
   return prevSibling;
 }
 
 function isValueSet(bead) {
-  var value = bead.dataset["value"];
-  var state = bead.dataset["state"];
+  var value = bead.dataset[DATA_VALUE];
+  var state = bead.dataset[DATA_CURRENT];
   return value == state;
+}
+
+function isUpperBead(bead) {
+  return bead.className == "upper";
+}
+
+function isSeparator(bead) {
+  return bead && bead.className == "separator";
 }
 
 async function renderClearValue(bead, delay) {
   await sleep(delay);
-  if (bead.className == "upper") {
+  if (isUpperBead(bead)) {
     bead.style.top = -1 * bead.clientHeight + "px";
   } else {
     bead.style.top = "0px";
@@ -77,7 +101,7 @@ async function renderClearValue(bead, delay) {
 async function renderSetValue(bead, delay) {
   await sleep(delay);
 
-  if (bead.className == "upper") {
+  if (isUpperBead(bead)) {
     bead.style.top = "0px";
   } else {
     bead.style.top = -1 * bead.clientHeight + "px";

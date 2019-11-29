@@ -1,5 +1,5 @@
 #abacus-holder {
-    text-align: center;
+  text-align: center;
 }
 
 #abacus {
@@ -18,20 +18,19 @@
 #place-value {
   width: 1248px;
   position: absolute;
-  top: 650px;
+  top: 1000px;
 }
 
 #abacus tr {
   background-color: wheat;
   border: 1px solid tan;
   display: inline-block;
-  margin: 0 64px; 
+  margin: 0 64px;
   height: 390px;
   margin-bottom: -3px;
   width: 17px;
   padding-top: 60px;
 }
-
 
 #abacus td {
   margin-left: -52px;
@@ -41,18 +40,21 @@
   background-color: brown;
   display: block;
   border-radius: 50%;
--webkit-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
--moz-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
-box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8px -6px rgba(176,65,65,0.91);
+  -webkit-box-shadow: inset 10px 10px 8px -5px rgba(252, 171, 171, 0.6),
+    inset -10px -10px 8px -6px rgba(176, 65, 65, 0.91);
+  -moz-box-shadow: inset 10px 10px 8px -5px rgba(252, 171, 171, 0.6),
+    inset -10px -10px 8px -6px rgba(176, 65, 65, 0.91);
+  box-shadow: inset 10px 10px 8px -5px rgba(252, 171, 171, 0.6),
+    inset -10px -10px 8px -6px rgba(176, 65, 65, 0.91);
 }
 
 #abacus td.separator {
   width: 185px;
   height: 17px;
   background-color: wheat;
-  border-radius:0;
+  border-radius: 0;
   box-shadow: none;
-  
+
   margin-bottom: 60px;
   margin-left: -93px;
 }
@@ -72,4 +74,3 @@ box-shadow: inset 10px 10px 8px -5px rgba(252,171,171,0.6), inset -10px -10px 8p
   margin-left: -20px;
   border: 1px solid grey;
 }
-
