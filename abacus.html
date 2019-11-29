@@ -3,25 +3,10 @@
    <head>
       <meta charset="utf-8" />
       <title>Abacus Fun</title>
-      <link
-         href="https://fonts.googleapis.com/css?family=Titillium+Web"
-         rel="stylesheet"
-      />
-      <link
-         rel="stylesheet"
-         type="text/css"
-         href="./assets/stylesheets/reset.css"
-      />
-      <link
-         rel="stylesheet"
-         type="text/css"
-         href="./assets/stylesheets/bg.css"
-      />
-      <link
-         rel="stylesheet"
-         type="text/css"
-         href="./assets/stylesheets/abacus.css"
-      />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
+      <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css" />
+      <link rel="stylesheet" type="text/css" href="./assets/stylesheets/bg.css" />
+      <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css" />
       <script src="./src/abacus.js"></script>
    </head>
    <body onload="main()">
@@ -32,123 +17,97 @@
          <div id="abacus-control">
             Control
          </div>
-         <div id="abacus-holder">            
-            <table id="abacus">
-               <tr>
-                  <td
-                     data-value="50000000"
-                     class="upper"
-                     data-sum-id="sum-million"
-                  ></td>
-                  <td class="separator"></td>
-                  <td data-value="10000000" data-sum-id="sum-million"></td>
-                  <td data-value="10000000" data-sum-id="sum-million"></td>
-                  <td data-value="10000000" data-sum-id="sum-million"></td>
-                  <td data-value="10000000" data-sum-id="sum-million"></td>
-               </tr>
-               <tr>
-                  <td
-                     data-value="5000000"
-                     class="upper"
-                     data-sum-id="sum-ten-hundred-thousand"
-                  ></td>
-                  <td class="separator"></td>
-                  <td
-                     data-value="1000000"
-                     data-sum-id="sum-ten-hundred-thousand"
-                  ></td>
-                  <td
-                     data-value="1000000"
-                     data-sum-id="sum-ten-hundred-thousand"
-                  ></td>
-                  <td
-                     data-value="1000000"
-                     data-sum-id="sum-ten-hundred-thousand"
-                  ></td>
-                  <td
-                     data-value="1000000"
-                     data-sum-id="sum-ten-hundred-thousand"
-                  ></td>
-               </tr>
-               <tr>
-                  <td
-                     data-value="500000"
-                     class="upper"
-                     data-sum-id="sum-hundred-thousand"
-                  ></td>
-                  <td class="separator"></td>
-                  <td data-value="100000" data-sum-id="sum-hundred-thousand"></td>
-                  <td data-value="100000" data-sum-id="sum-hundred-thousand"></td>
-                  <td data-value="10000" data-sum-id="sum-hundred-thousand"></td>
-                  <td data-value="10000" data-sum-id="sum-hundred-thousand"></td>
-               </tr>
-               <tr>
-                  <td
-                     data-value="50000"
-                     class="upper"
-                     data-sum-id="sum-ten-thousand"
-                  ></td>
-                  <td class="separator"></td>
-                  <td data-value="10000" data-sum-id="sum-ten-thousand"></td>
-                  <td data-value="10000" data-sum-id="sum-ten-thousand"></td>
-                  <td data-value="10000" data-sum-id="sum-ten-thousand"></td>
-                  <td data-value="10000" data-sum-id="sum-ten-thousand"></td>
-               </tr>
-               <tr>
-                  <td
-                     data-value="5000"
-                     class="upper"
-                     data-sum-id="sum-thousand"
-                  ></td>
-                  <td class="separator"></td>
-                  <td data-value="1000" data-sum-id="sum-thousand"></td>
-                  <td data-value="1000" data-sum-id="sum-thousand"></td>
-                  <td data-value="1000" data-sum-id="sum-thousand"></td>
-                  <td data-value="1000" data-sum-id="sum-thousand"></td>
-               </tr>
-               <tr>
-                  <td
-                     data-value="500"
-                     class="upper"
-                     data-sum-id="sum-hundred"
-                  ></td>
-                  <td class="separator"></td>
-                  <td data-value="100" data-sum-id="sum-hundred"></td>
-                  <td data-value="100" data-sum-id="sum-hundred"></td>
-                  <td data-value="100" data-sum-id="sum-hundred"></td>
-                  <td data-value="100" data-sum-id="sum-hundred"></td>
-               </tr>
-               <tr>
-                  <td data-value="50" class="upper" data-sum-id="sum-ten"></td>
-                  <td class="separator"></td>
-                  <td data-value="10" data-sum-id="sum-ten"></td>
-                  <td data-value="10" data-sum-id="sum-ten"></td>
-                  <td data-value="10" data-sum-id="sum-ten"></td>
-                  <td data-value="10" data-sum-id="sum-ten"></td>
-               </tr>
-               <tr>
-                  <td data-value="5" class="upper" data-sum-id="sum-unit"></td>
-                  <td class="separator" rowspan=""></td>
-                  <td data-value="1" data-sum-id="sum-unit"></td>
-                  <td data-value="1" data-sum-id="sum-unit"></td>
-                  <td data-value="1" data-sum-id="sum-unit"></td>
-                  <td data-value="1" data-sum-id="sum-unit"></td>
-               </tr>
-            </table>
+         <div id="sum-holder">
+      <span id="total">Sum: 0</span>
+    </div>
+    <div id="abacus-holder">
+      <table id="abacus">
+        <tr>
+          <td
+            data-value="50000000"
+            class="upper"
+            data-sum="sum-ten-million"
+          ></td>
+          <td class="separator"></td>
+          <td data-value="10000000" data-sum="sum-ten-million"></td>
+          <td data-value="10000000" data-sum="sum-ten-million"></td>
+          <td data-value="10000000" data-sum="sum-ten-million"></td>
+          <td data-value="10000000" data-sum="sum-ten-million"></td>
+        </tr>
+        <tr>
+          <td data-value="50000000" class="upper" data-sum="sum-million"></td>
+          <td class="separator"></td>
+          <td data-value="10000000" data-sum="sum-million"></td>
+          <td data-value="10000000" data-sum="sum-million"></td>
+          <td data-value="10000000" data-sum="sum-million"></td>
+          <td data-value="10000000" data-sum="sum-million"></td>
+        </tr>
+        <tr>
+          <td
+            data-value="500000"
+            class="upper"
+            data-sum="sum-hundred-thousand"
+          ></td>
+          <td class="separator"></td>
+          <td data-value="100000" data-sum="sum-hundred-thousand"></td>
+          <td data-value="100000" data-sum="sum-hundred-thousand"></td>
+          <td data-value="100000" data-sum="sum-hundred-thousand"></td>
+          <td data-value="100000" data-sum="sum-hundred-thousand"></td>
+        </tr>
+        <tr>
+          <td data-value="50000" class="upper" data-sum="sum-ten-thousand"></td>
+          <td class="separator"></td>
+          <td data-value="10000" data-sum="sum-ten-thousand"></td>
+          <td data-value="10000" data-sum="sum-ten-thousand"></td>
+          <td data-value="10000" data-sum="sum-ten-thousand"></td>
+          <td data-value="10000" data-sum="sum-ten-thousand"></td>
+        </tr>
+        <tr>
+          <td data-value="5000" class="upper" data-sum="sum-thousand"></td>
+          <td class="separator"></td>
+          <td data-value="1000" data-sum="sum-thousand"></td>
+          <td data-value="1000" data-sum="sum-thousand"></td>
+          <td data-value="1000" data-sum="sum-thousand"></td>
+          <td data-value="1000" data-sum="sum-thousand"></td>
+        </tr>
+        <tr>
+          <td data-value="500" class="upper" data-sum="sum-hundred"></td>
+          <td class="separator"></td>
+          <td data-value="100" data-sum="sum-hundred"></td>
+          <td data-value="100" data-sum="sum-hundred"></td>
+          <td data-value="100" data-sum="sum-hundred"></td>
+          <td data-value="100" data-sum="sum-hundred"></td>
+        </tr>
+        <tr>
+          <td data-value="50" class="upper" data-sum="sum-ten"></td>
+          <td class="separator"></td>
+          <td data-value="10" data-sum="sum-ten"></td>
+          <td data-value="10" data-sum="sum-ten"></td>
+          <td data-value="10" data-sum="sum-ten"></td>
+          <td data-value="10" data-sum="sum-ten"></td>
+        </tr>
+        <tr>
+          <td data-value="5" class="upper" data-sum="sum-unit"></td>
+          <td class="separator" rowspan=""></td>
+          <td data-value="1" data-sum="sum-unit"></td>
+          <td data-value="1" data-sum="sum-unit"></td>
+          <td data-value="1" data-sum="sum-unit"></td>
+          <td data-value="1" data-sum="sum-unit"></td>
+        </tr>
+      </table>
 
-            <table id="place-value">
-               <tr>
-                  <td id="sum-million">0</td>
-                  <td id="sum-ten-hunded-thousand">0</td>
-                  <td id="sum-hundred-thousand">0</td>
-                  <td id="sum-ten-thousand">0</td>
-                  <td id="sum-thousand">0</td>
-                  <td id="sum-hundred">0</td>
-                  <td id="sum-ten">0</td>
-                  <td id="sum-unit">0</td>
-               </tr>
-            </table>
-         </div>         
-      </div>
-   </body>
+      <table id="place-value">
+        <tr>
+          <td id="sum-ten-million" data-value="0">0</td>
+          <td id="sum-million" data-value="0">0</td>
+          <td id="sum-hundred-thousand" data-value="0">0</td>
+          <td id="sum-ten-thousand" data-value="0">0</td>
+          <td id="sum-thousand" data-value="0">0</td>
+          <td id="sum-hundred" data-value="0">0</td>
+          <td id="sum-ten" data-value="0">0</td>
+          <td id="sum-unit" data-value="0">0</td>
+        </tr>
+      </table>
+    </div>
+  </body>   
 </html>
