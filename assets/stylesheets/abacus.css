@@ -6,13 +6,17 @@
   height: 100vh;
 }
 
-#question {
-  font-weight: 700;
+#text-wrapper {
   font-size: 3em;
-  margin-top: 18px;
+  top: 50px;    
+  position: relative;  
+  text-align: center;    
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
-#question,
+#text-wrapper,
 #abacus-holder {
   text-align: center;
 }
@@ -22,14 +26,10 @@
   height: 600px;
 }
 
-#sum-holder {
-  font-size: 2em;
-  top: 50px;    
-  position: relative;  
-  text-align: center;    
-  left: 0;
-  bottom: 0;
-  right: 0;
+#reset-wrapper{
+  position: absolute;
+  top: 80px;
+  right: 0;  
 }
 
 #abacus {

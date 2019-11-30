@@ -13,7 +13,7 @@
 
   <body onload="main()">
     <div id="main">
-      <div id="question">
+      <div id="text-wrapper">
         <span id="addend1"></span>
         <span id="operator"></span>
         <span id="addend2"></span>
@@ -23,9 +23,10 @@
         <span id="message"> </span>
       </div>
       
-      <div id="abacus-holder">  
+      <div id="abacus-holder"> 
+
         <div class="btn btn-primary tooltip">
-          <div id="sum-holder">
+          <div id="reset-wrapper">
             <button id="reset" onclick="reset()"></button>
           </div>
           <div class="left">
@@ -33,7 +34,6 @@
               <i></i>
           </div>
         </div>
-
 
         <table id="abacus">                   
           <tr>

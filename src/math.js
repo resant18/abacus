@@ -5,7 +5,7 @@ var result;
 var total;
 
 function generateMathQuestion(level, operation) {
-  if (!document.getElementById("question")) {
+  if (!document.getElementById("text-wrapper")) {
     return;
   }
   let operator = "";

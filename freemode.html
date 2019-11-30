@@ -12,17 +12,23 @@
 
   <body onload="main()">
     <div id="main">
-      <div id="sum-holder">        
+      <div id="text-wrapper">        
         <span id="total">0</span>
       </div>
       <div id="abacus-holder">
+        <div class="btn btn-primary tooltip">
+          <div id="reset-wrapper">
+            <button id="reset" onclick="reset()"></button>
+          </div>
+          <div class="left">
+              <p>Press this button to reset the abacus</p>
+              <i></i>
+          </div>
+        </div>
+
         <table id="abacus">
           <tr>
-            <td
-              data-value="50000000"
-              class="upper"
-              data-sum="sum-ten-million"
-            ></td>
+            <td data-value="50000000" class="upper" data-sum="sum-ten-million" ></td>
             <td class="separator"></td>
             <td data-value="10000000" data-sum="sum-ten-million"></td>
             <td data-value="10000000" data-sum="sum-ten-million"></td>
