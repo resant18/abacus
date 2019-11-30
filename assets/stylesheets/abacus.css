@@ -6,24 +6,20 @@
   height: 100vh;
 }
 
-#question {  
+#question {
   font-weight: 700;
   font-size: 3em;
   margin-top: 18px;
 }
 
-#question, #abacus-holder {
-    text-align: center;
-}
-
-#abacus-control {
-  
-
+#question,
+#abacus-holder {
+  text-align: center;
 }
 
 #abacus {
   height: 449px;
-  width: 1248px;  
+  width: 1248px;
   border: 17px solid wheat;
   margin: auto;
   position: absolute;
@@ -46,11 +42,9 @@
 }
 
 #place-value tr {
-
 }
 
 #place-value tr td {
-
 }
 
 #abacus tr {
