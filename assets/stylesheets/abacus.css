@@ -23,9 +23,12 @@
 }
 
 #sum-holder {
-  top: 84px;
-  height: 29px;
-  position: absolute;
+  font-size: 2em;
+  top: 50px;    
+  position: relative;  
+  text-align: center;    
+  left: 0;
+  bottom: 0;
   right: 0;
 }
 
