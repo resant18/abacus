@@ -7,7 +7,11 @@ var sums = [];
 
 function main() {
   initializeBeads();
+  generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
+}
 
+function reset() {
+  resetBeads();
   generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
 }
 
@@ -37,6 +41,16 @@ function moveBead(e) {
   } else {
     setValue(this);
   }
+}
+
+function resetBeads() {
+  for (var i = 0; i < beads.length; i++) {
+    bead = beads[i];
+    if (!isSeparator(bead)) {
+      clearValue(bead);
+    }
+  }
+  document.getElementById("total").innerHTML = "";
 }
 
 function clearValue(bead) {
