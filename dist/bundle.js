@@ -223,7 +223,7 @@ function updateSum(sumId, beads) {
     }
   }
   sumTd = document.getElementById(sumId);
-  sumTd.innerHTML = sum;
+  sumTd.innerHTML = sum.toString().substring(0, 1);
   sumTd.dataset["value"] = sum;
   updateTotalSum();
 }
