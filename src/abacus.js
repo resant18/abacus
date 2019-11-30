@@ -7,12 +7,12 @@ var sums = [];
 
 function main() {
   initializeBeads();
-  generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
+  generateMathQuestion(2, 1); // 0 = substraction, 1 = addition
 }
 
 function reset() {
   resetBeads();
-  generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
+  generateMathQuestion(2, 1); // 0 = substraction, 1 = addition
 }
 
 function initializeBeads() {

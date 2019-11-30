@@ -21,12 +21,12 @@ function generateMathQuestion(level, operation) {
 
   switch (level) {
     case 1:
-      addend1 = Math.floor(Math.random() * 5);
-      addend2 = 4 - addend1;
+      addend1 = Math.floor(Math.random() * 4) + 1;
+      addend2 = 5 - addend1;
       break;
     case 2:
-      addend1 = Math.floor(Math.random() * 10);
-      addend2 = 9 - addend1;
+      addend1 = Math.floor(Math.random() * 9) + 1;
+      addend2 = 10 - addend1;
       break;
     case 3:
       addend1 = Math.floor(Math.random() * 10);
