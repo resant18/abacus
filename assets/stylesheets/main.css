@@ -21,9 +21,11 @@ body {
     }
 }
 
-.main {
-  width: 800px;
-  margin: auto;
+main {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;    
 }
 
 .abacus-frame {
