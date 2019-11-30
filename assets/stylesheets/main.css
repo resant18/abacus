@@ -65,19 +65,21 @@ main {
 
 .big-circles {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   animation: infinite-rotation 125s infinite;
+  top: 35%;
+  left: 40%;
 }
 
 .big-circle {
   position: inherit;
   display: block;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background: #1f0a55;
-  margin-top: -125px;
-  margin-left: -125px;
+  margin-top: 0px;
+  margin-left: 0px;
   border-radius: 125px;
   -webkit-animation: bigcircle 1.6s ease-in-out alternate;
   -moz-animation: bigcircle 1.6s ease-in-out alternatee;
@@ -85,16 +87,18 @@ main {
 }
 
 .big-circle:nth-child(1) {
-  top: 78%;
-  left: 44%;
+  top: 25%;
+  left: 25%;
   cursor: pointer;
+  opacity: 0.75;
 }
 
 .big-circle:nth-child(2) {
   display: block;
-  top: 98%;
-  left: 84%;
+  top: 65%;
+  left: 65%;
   cursor: pointer;
+  opacity: 0.75;
 }
 
 @keyframes bigcircle {
