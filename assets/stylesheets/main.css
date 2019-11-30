@@ -36,9 +36,9 @@ main {
     position: relative;
     /* top: calc((100vh - 25em) / 2); */
     /* position: fixed; */
+    margin-right: 100px;
     right: 0;
     top: 50%;
-
     -webkit-transform: translateY(-50%);
        -moz-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -47,7 +47,7 @@ main {
 }
 
 .highlight {
-    font-size: 20em;
+    font-size: 15em;
     background: url(../images/brush-stroke.png);    
     background-repeat: no-repeat;
     background-size: 100% 95%;
@@ -68,7 +68,7 @@ main {
   width: 50%;
   height: 50%;
   animation: infinite-rotation 125s infinite;
-  top: 35%;
+  top: 30%;
   left: 40%;
 }
 
@@ -77,7 +77,7 @@ main {
   display: block;
   width: 200px;
   height: 200px;
-  background: #1f0a55;
+  background: #3D6DEB;
   margin-top: 0px;
   margin-left: 0px;
   border-radius: 125px;
@@ -129,5 +129,23 @@ main {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.big-cirlce-free-mode, .big-cicle-challenge {
+  position: relative;
+}
+
+.big-cicle-challenge span {
+  position: absolute;
+  font-size: 2.5em;
+  top: 75px;
+  left: 225px;
+}
+
+.big-circle-free-mode span {
+  position: absolute;
+  font-size: 2em;
+  top: 72px;
+  left: 25px;
 }
 
