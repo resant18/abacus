@@ -97,18 +97,21 @@ const DATA_CURRENT = "current";
 const DATA_VALUE = "value";
 const RENDER_DELAY = 100; //in ms
 
-var total = 0;
 var beads = [];
 var sums = [];
 
 function main() {
+  initializeBeads();
+
+  generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
+}
+
+function initializeBeads() {
   beads = getBeads();
   sums = getRowSums();
   for (var i = 0; i < beads.length; i++) {
     beads[i].onclick = moveBead;
   }
-
-  generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
 }
 
 function getRowSums() {
@@ -132,7 +135,7 @@ function moveBead(e) {
 }
 
 function clearValue(bead) {
-  var delay = 0;
+  let delay = 0;
   nextSibling = getNextBead(bead);
   if (nextSibling && isValueSet(nextSibling)) {
     delay = RENDER_DELAY + clearValue(nextSibling);
@@ -142,8 +145,8 @@ function clearValue(bead) {
   return delay;
 }
 
-function setValue(bead, delay) {
-  var delay = 0;
+function setValue(bead) {
+  let delay = 0;
   prevSibling = getPrevBead(bead);
   if (prevSibling && !isValueSet(prevSibling)) {
     delay = RENDER_DELAY + setValue(prevSibling);
@@ -159,7 +162,7 @@ function updateValue(bead, newValue) {
 }
 
 function getNextBead(bead) {
-  nextSibling = bead.nextElementSibling;
+  let nextSibling = bead.nextElementSibling;
   if (isSeparator(nextSibling)) {
     nextSibling = undefined;
   }
@@ -167,7 +170,7 @@ function getNextBead(bead) {
 }
 
 function getPrevBead(bead) {
-  prevSibling = bead.previousElementSibling;
+  let prevSibling = bead.previousElementSibling;
   if (isSeparator(bead)) {
     prevSibling = undefined;
   }
@@ -175,8 +178,8 @@ function getPrevBead(bead) {
 }
 
 function isValueSet(bead) {
-  var value = bead.dataset[DATA_VALUE];
-  var state = bead.dataset[DATA_CURRENT];
+  let value = bead.dataset[DATA_VALUE];
+  let state = bead.dataset[DATA_CURRENT];
   return value == state;
 }
 
@@ -211,30 +214,6 @@ async function sleep(msec) {
   return new Promise(resolve => {
     setTimeout(resolve, msec);
   });
-}
-
-function updateSum(sumId, beads) {
-  var sum = 0;
-  for (var i = 0; i < beads.length; i++) {
-    bead = beads[i];
-    if (!isSeparator(bead)) {
-      currentValue = bead.dataset[DATA_CURRENT] || "0";
-      sum += Number(currentValue);
-    }
-  }
-  sumTd = document.getElementById(sumId);
-  sumTd.innerHTML = sum.toString().substring(0, 1);
-  sumTd.dataset["value"] = sum;
-  updateTotalSum();
-}
-
-function updateTotalSum() {
-  total = 0;
-  for (sum of sums) {
-    value = sum.dataset["value"];
-    total = total + Number(value);
-  }
-  document.getElementById("total").innerHTML = "Sum: " + total;
 }
 
 
