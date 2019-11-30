@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Titillium Web', sans-serif;
+    color: #fff;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main {
+  width: 800px;
+  margin: auto;
+}
+
+.abacus-frame {
+    background: url(../images/abacus-frame.svg);
+    background-repeat: no-repeat;
+    min-width: 500px;
+    height: 500px;
+    position: relative;
+    /* top: calc((100vh - 25em) / 2); */
+    /* position: fixed; */
+    right: 0;
+    top: 50%;
+
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+         -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.highlight {
+    font-size: 20em;
+    background: url(../images/brush-stroke.png);    
+    background-repeat: no-repeat;
+    background-size: 100% 95%;
+    padding: 8px 0;
+    animation-name: brushstroke;
+    animation-duration: 4s;
+}
+
+@keyframes brushstroke {
+  0%   {background-size: 0 0;}
+  25%  {background-size: 25% 25%;}
+  50%  {background-size: 50% 50%;}
+  100% {background-size: 100% 95%;}
+}
+
+.big-circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: infinite-rotation 125s infinite;
+}
+
+.big-circle {
+  position: inherit;
+  display: block;
+  width: 250px;
+  height: 250px;
+  background: #1f0a55;
+  margin-top: -125px;
+  margin-left: -125px;
+  border-radius: 125px;
+  -webkit-animation: bigcircle 1.6s ease-in-out alternate;
+  -moz-animation: bigcircle 1.6s ease-in-out alternatee;
+  animation: bigcircle 1.6s ease-in-out alternate;
+}
+
+.big-circle:nth-child(1) {
+  top: 78%;
+  left: 44%;
+  cursor: pointer;
+}
+
+.big-circle:nth-child(2) {
+  display: block;
+  top: 98%;
+  left: 84%;
+  cursor: pointer;
+}
+
+@keyframes bigcircle {
+  0% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes infinite-rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
