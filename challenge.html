@@ -33,11 +33,20 @@
         <br />
         <span id="message"> </span>
       </div>
-      <div id="sum-holder">
-        <button id="reset" onclick="reset()">RESET</button>
-      </div>
-      <div id="abacus-holder">
-        <table id="abacus">
+      
+      <div id="abacus-holder">  
+        <div class="btn btn-primary tooltip">
+          <div id="sum-holder">
+            <button id="reset" onclick="reset()"></button>
+          </div>
+          <div class="left">
+              <p>Press this button to reset the abacus</p>
+              <i></i>
+          </div>
+        </div>
+
+
+        <table id="abacus">                   
           <tr>
             <td
               data-value="50000000"

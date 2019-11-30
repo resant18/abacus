@@ -1,31 +1,32 @@
-body {
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    font-family: 'Titillium Web', sans-serif;
-    color: #fff;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
 main {
     position: relative;
     height: 100vh;
     display: flex;
     justify-content: center;    
+}
+
+.link {
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+.github {        
+  left: 133px;
+  top: 86px;
+}
+
+.linkedin {
+  font-family: "Arial"; 
+  left: 303px;
+  top: 291px;
+  font-size: 2.5em;
+  font-weight: 900;
+  color: white; 
 }
 
 .abacus-frame {
@@ -44,23 +45,38 @@ main {
         -ms-transform: translateY(-50%);
          -o-transform: translateY(-50%);
             transform: translateY(-50%);
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    right: -300px;
+  }
+
+  to {
+    right: 0;
+  }
 }
 
 .highlight {
     font-size: 15em;
     background: url(../images/brush-stroke.png);    
     background-repeat: no-repeat;
-    background-size: 100% 95%;
-    padding: 8px 0;
-    animation-name: brushstroke;
-    animation-duration: 4s;
+    background-size: 100% 100%;
+    padding: 8px 0;        
+    -webkit-animation: brushstroke 1.6s ease-in-out alternate;
+    -moz-animation: brushstroke 1.6s ease-in-out alternatee;
+    animation: brushstroke 1.6s ease-in-out alternate;
+    /* -webkit-animation: bigcircle 1.6s ease-in-out alternate;
+  -moz-animation: bigcircle 1.6s ease-in-out alternatee;
+  animation: bigcircle 1.6s ease-in-out alternate; */
 }
 
 @keyframes brushstroke {
-  0%   {background-size: 0 0;}
-  25%  {background-size: 25% 25%;}
-  50%  {background-size: 50% 50%;}
-  100% {background-size: 100% 95%;}
+  0%   {background-size: 0 0;}  
+  50%  {background-size: 0 0;}  
+  100% {background-size: 100% 100%;}
 }
 
 .big-circles {
@@ -93,10 +109,18 @@ main {
   opacity: 0.75;
 }
 
-.big-circle:nth-child(2) {
-  display: block;
+.big-circle:nth-child(2) {  
   top: 65%;
   left: 65%;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.big-circle:nth-child(3) {  
+  top: 37%;
+  left: 63%;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   opacity: 0.75;
 }
@@ -132,7 +156,7 @@ main {
 }
 
 .big-cirlce-free-mode, .big-cicle-challenge {
-  position: relative;
+  position: relative;  
 }
 
 .big-cicle-challenge span {
@@ -140,6 +164,10 @@ main {
   font-size: 2.5em;
   top: 75px;
   left: 225px;
+  -webkit-animation: bigcircle 1.6s ease-in-out alternate;
+  -moz-animation: bigcircle 1.6s ease-in-out alternatee;
+  animation: bigcircle 1.6s ease-in-out alternate; 
+  cursor: pointer; 
 }
 
 .big-circle-free-mode span {
@@ -147,5 +175,9 @@ main {
   font-size: 2em;
   top: 72px;
   left: 25px;
+  -webkit-animation: bigcircle 1.6s ease-in-out alternate;
+  -moz-animation: bigcircle 1.6s ease-in-out alternatee;
+  animation: bigcircle 1.6s ease-in-out alternate;
+  cursor: pointer;
 }
 
