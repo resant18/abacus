@@ -208,7 +208,7 @@ function isSeparator(bead) {
 async function renderClearValue(bead, delay) {
   await sleep(delay);
   if (isUpperBead(bead)) {
-    bead.style.top = -1 * bead.clientHeight + "px";
+    bead.style.top = -1 * bead.clientHeight + "px";    
   } else {
     bead.style.top = "0px";
   }
