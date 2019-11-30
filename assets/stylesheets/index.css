@@ -162,8 +162,8 @@ main {
 .big-cicle-challenge span {
   position: absolute;
   font-size: 2.5em;
-  top: 75px;
-  left: 225px;
+  top: 68px;
+  left: 17px;
   -webkit-animation: bigcircle 1.6s ease-in-out alternate;
   -moz-animation: bigcircle 1.6s ease-in-out alternatee;
   animation: bigcircle 1.6s ease-in-out alternate; 
