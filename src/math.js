@@ -5,14 +5,16 @@ var result;
 var total;
 
 function generateMathQuestion(level, operation) {
+  if (!document.getElementById("question")) {
+    return;
+  }
   let operator = "";
-
   let addendEl1 = document.getElementById("addend1");
   let addendEl2 = document.getElementById("addend2");
   let operatorEl = document.getElementById("operator");
 
-  addendEl1.style.color = "white";
-  addendEl2.style.color = "white";
+  addendEl1.style.color = "black";
+  addendEl2.style.color = "black";
 
   switch (level) {
     case 1:
