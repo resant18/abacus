@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8" />
-      <title>Abacus Fun</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
-      <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css" />
-      <link rel="stylesheet" type="text/css" href="./assets/stylesheets/bg.css" />
-      <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css" />
-      <script src="./src/abacus.js"></script>
-   </head>
-   <body onload="main()">
-      <div id="main">
-         <div id="question">
-               23 + 14
-            </div>
-         <div id="abacus-control">
-            Control
-         </div>
-         <div id="sum-holder">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Abacus Fun</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/bg.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css" />
+  <script src="./src/math.js"></script>
+  <script src="./src/abacus.js"></script>
+</head>
+
+<body onload="main()">
+  <div id="main">
+    <div id="question">
+      <span id="addend1"></span>
+      <span id="operator"></span>
+      <span id="addend2"></span>
+    </div>
+    <div id="abacus-control">
+      Control
+    </div>
+    <div id="sum-holder">
       <span id="total">Sum: 0</span>
     </div>
     <div id="abacus-holder">
       <table id="abacus">
         <tr>
-          <td
-            data-value="50000000"
-            class="upper"
-            data-sum="sum-ten-million"
-          ></td>
+          <td data-value="50000000" class="upper" data-sum="sum-ten-million"></td>
           <td class="separator"></td>
           <td data-value="10000000" data-sum="sum-ten-million"></td>
           <td data-value="10000000" data-sum="sum-ten-million"></td>
@@ -43,11 +44,7 @@
           <td data-value="10000000" data-sum="sum-million"></td>
         </tr>
         <tr>
-          <td
-            data-value="500000"
-            class="upper"
-            data-sum="sum-hundred-thousand"
-          ></td>
+          <td data-value="500000" class="upper" data-sum="sum-hundred-thousand"></td>
           <td class="separator"></td>
           <td data-value="100000" data-sum="sum-hundred-thousand"></td>
           <td data-value="100000" data-sum="sum-hundred-thousand"></td>
@@ -109,5 +106,7 @@
         </tr>
       </table>
     </div>
-  </body>   
+  </div>
+</body>
+
 </html>

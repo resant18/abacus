@@ -12,6 +12,8 @@ function main() {
   for (var i = 0; i < beads.length; i++) {
     beads[i].onclick = moveBead;
   }
+
+  generateMathQuestion(1, 1); // 0 = substraction, 1 = addition
 }
 
 function getRowSums() {
