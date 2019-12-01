@@ -192,21 +192,15 @@ main {
   position: absolute;
   font-size: 2.5em;
   top: 68px;
-  left: 17px;
-  -webkit-animation: bigcircle 1.6s ease-in-out alternate;
-  -moz-animation: bigcircle 1.6s ease-in-out alternatee;
-  animation: bigcircle 1.6s ease-in-out alternate; 
-  cursor: pointer; 
+  left: 17px;  
+  cursor: pointer;   
 }
 
 .big-circle-free-mode span {
   position: absolute;
   font-size: 2em;
   top: 72px;
-  left: 25px;
-  -webkit-animation: bigcircle 1.6s ease-in-out alternate;
-  -moz-animation: bigcircle 1.6s ease-in-out alternatee;
-  animation: bigcircle 1.6s ease-in-out alternate;
+  left: 25px;  
   cursor: pointer;
 }
 
