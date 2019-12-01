@@ -180,3 +180,30 @@
     background-color:#EEEEEE;
     box-shadow:0 1px 8px rgba(0,0,0,0.5);
 }
+
+.close-wrapper {
+    position: relative;
+    top: 30px;
+}
+
+.icon-close {
+  background-position: 0 0;
+}
+
+.icon-close:hover {
+  background-position: 0 -60px;   
+}
+
+[class*="icon-"] {
+  display: inline-block;
+  background-image: url(../images/close.png);
+  background-size: 60px 120px;
+  background-repeat: no-repeat;
+  /* vertical-align: bottom; */
+  overflow: hidden;
+  height: 0;
+  width: 60px;
+  padding-top: 60px;
+}
+
+
