@@ -103,15 +103,8 @@
   top: -60px;
 }
 
-#sum {
-  display: inline-block;
-  width: 50px;
-  height: 20px;
-  font-family: sans-serif;
-  font-size: 12px;
-  padding-top: 7px;
-  margin-left: -20px;
-  border: 1px solid grey;
+#total {
+  padding-left: 15px;
 }
 
 #reset {  
@@ -140,7 +133,7 @@
 
 .tooltip .top {
     min-width:200px; 
-    top:60px;
+    top:-30px;
     right:-10%;
     transform:translate(-50%, -100%);
     padding:10px 20px;
