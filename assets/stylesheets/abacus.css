@@ -21,14 +21,21 @@
   text-align: center;
 }
 
+.heading {
+  font-size: 4em;
+  position: absolute;
+  left: 41%;
+}
+
 #abacus-holder {
   position: relative;
-  height: 600px;
+  height: 500px;
+  top: 60px;
 }
 
 #reset-wrapper{
   position: absolute;
-  top: 80px;
+  top: -21px;
   right: 0;  
 }
 
@@ -37,8 +44,7 @@
   width: 1248px;
   border: 17px solid wheat;
   margin: auto;
-  position: absolute;
-  top: 114px;
+  position: absolute;  
   left: 0;
   bottom: 0;
   right: 0;
@@ -48,7 +54,7 @@
   width: 1248px;
   margin: auto;
   position: absolute;
-  top: 650px;  
+  top: 525px;  
   bottom: 0;  
   padding: 0 30px;
   font-size: 2em;
