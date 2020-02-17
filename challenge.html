@@ -3,9 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <title>Abacus Fun</title>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Titillium+Web" />
-    <link rel="stylesheet" type="text/css" href="./assets/stylesheets/reset.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Titillium+Web"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/stylesheets/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/stylesheets/abacus.css"
+    />
     <script src="./src/math.js"></script>
     <script src="./src/timer.js"></script>
     <script src="./src/abacus.js"></script>
@@ -18,28 +30,27 @@
       </div>
       <span class="heading">Abacus Fun</span>
       <div id="text-wrapper">
-        <input id="addend1" type="text" value="" size="3">
-        <input id="operator" type="text" value="" size="1">
-        <input id="addend2" type="text" value="" size="3">
+        <input id="addend1" type="text" value="" size="3" />
+        <input id="operator" type="text" value="" size="1" />
+        <input id="addend2" type="text" value="" size="3" />
         <span>=</span>
         <span id="total"></span>
         <br />
-        <span id="message"> </span>
+        <span id="message" style="visibility: hidden;">Good Job!!!</span>
       </div>
-      
-      <div id="abacus-holder"> 
 
+      <div id="abacus-holder">
         <div class="btn btn-primary tooltip">
           <div id="reset-wrapper">
             <button id="reset" onclick="reset()"></button>
           </div>
           <div class="top">
-              <p>Press this button to reset the abacus</p>
-              <i></i>
+            <p>Press this button to reset the abacus</p>
+            <i></i>
           </div>
         </div>
 
-        <table id="abacus">                   
+        <table id="abacus">
           <tr>
             <td
               data-value="50000000"

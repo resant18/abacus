@@ -4,18 +4,23 @@ var addend2;
 var operator;
 var result;
 var total;
+var message;
+var intervalId;
 
 function generateMathQuestion(level, operation) {
   if (!document.getElementById("text-wrapper")) {
     return;
   }
+
   let operator = "";
 
   let addendEl1 = document.getElementById("addend1");
   let addendEl2 = document.getElementById("addend2");
   let operatorEl = document.getElementById("operator");
   let totalEl = document.getElementById("total");
-  document.getElementById("message").innerHTML = "";
+  let message = document.getElementById("message");
+
+  message.style.visibility = "hidden";
   addendEl1.style.color = "black";
   addendEl2.style.color = "black";
   totalEl.style.color = "black";
@@ -51,31 +56,43 @@ function generateMathQuestion(level, operation) {
 
   addendEl1.onchange = updateAddend1;
   addendEl2.onchange = updateAddend2;
-  operatorEl.onchange = updateOperator;
 
   checkValue = checkAddend1;
+  startTimer();
 }
 
+function startTimer() {
+  let timer = 10;
+  let message = document.getElementById("message");
+  intervalId = setInterval(showTimer, 1000);
+  message.innerHTML = timer;
+  message.style.visibility = "visible";
+
+  function showTimer() {
+    message.innerHTML = timer;
+    message.style.visibility = "visible";
+    if (timer === 0) {
+      clearInterval(intervalId);
+      message.innerHTML = "Time out, please reset to try again!!!";
+      message.style.visibility = "visible";
+      disableCalculation();
+      if (confirm("Do you want to try again?")) {
+        reset();
+      }
+    }
+    timer--;
+  }
+}
 
 function updateAddend1() {
-  debugger
-  addend1 = parseInt(document.getElementById('addend1').value);
+  debugger;
+  addend1 = parseInt(document.getElementById("addend1").value);
   result = parseInt(addend1) + parseInt(addend2);
 }
 
 function updateAddend2() {
-  
   addend2 = parseInt(document.getElementById("addend2").value);
   result = parseInt(addend1) + parseInt(addend2);
-}
-
-function updateOperator() {
-  // operator = document.getElementById("operator").value;
-  // if (operator === '+') {
-  //   result = parseInt(addend1) + parseInt(addend2);
-  // } else {
-  //   result = parseInt(addend1) - parseInt(addend2);
-  // }
 }
 
 function checkAddend1() {
@@ -83,20 +100,29 @@ function checkAddend1() {
     addendEl1 = document.getElementById("addend1");
     addendEl1.style.color = "green";
     checkValue = checkResult;
+  } else {
+    checkResult();
   }
 }
 
-function checkResult() {  
+function checkResult() {
   if (total === result) {
+    clearInterval(intervalId);
     addendEl1 = document.getElementById("addend1");
     addendEl2 = document.getElementById("addend2");
     operator = document.getElementById("operator");
     totalEl = document.getElementById("total");
     addendEl1.style.color = "green";
     addendEl2.style.color = "green";
-    totalEl.style.color = "green";    
-    document.getElementById("message").innerHTML = "Good Job!!!";
+    totalEl.style.color = "green";
+    message.style.visibility = "visible";
+    document.getElementById;
+    disableCalculation();
   }
+}
+
+function disableCalculation() {
+  checkValue = () => {};
 }
 
 function updateSum(sumId, beads) {
