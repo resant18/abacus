@@ -62,15 +62,14 @@ function generateMathQuestion(level, operation) {
 }
 
 function startTimer() {
-  let timer = 10;
+  let timer = 60;
   let message = document.getElementById("message");
   intervalId = setInterval(showTimer, 1000);
-  message.innerHTML = timer;
+  message.innerHTML = "Timer: " + timer;
   message.style.visibility = "visible";
 
   function showTimer() {
-    message.innerHTML = timer;
-    message.style.visibility = "visible";
+    timer--;
     if (timer === 0) {
       clearInterval(intervalId);
       message.innerHTML = "Time out, please reset to try again!!!";
@@ -79,8 +78,10 @@ function startTimer() {
       if (confirm("Do you want to try again?")) {
         reset();
       }
+    } else {
+      message.innerHTML = "Timer: " + timer;
+      message.style.visibility = "visible";
     }
-    timer--;
   }
 }
 
@@ -115,6 +116,7 @@ function checkResult() {
     addendEl1.style.color = "green";
     addendEl2.style.color = "green";
     totalEl.style.color = "green";
+    message.innerHTML = "Good job!!";
     message.style.visibility = "visible";
     document.getElementById;
     disableCalculation();
