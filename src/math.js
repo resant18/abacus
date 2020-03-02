@@ -113,6 +113,7 @@ function checkResult() {
     addendEl2 = document.getElementById("addend2");
     operator = document.getElementById("operator");
     totalEl = document.getElementById("total");
+    message = document.getElementById("message");
     addendEl1.style.color = "green";
     addendEl2.style.color = "green";
     totalEl.style.color = "green";
