@@ -82,15 +82,16 @@
   height: 60px;
   width: 120px;
   position: relative;
-  background-color: brown;
+  background-color: rgb(184, 180, 180); /*  brown; */
   display: block;
   border-radius: 50%;
-  -webkit-box-shadow: inset 10px 10px 8px -5px rgba(252, 171, 171, 0.6),
-    inset -10px -10px 8px -6px rgba(176, 65, 65, 0.91);
-  -moz-box-shadow: inset 10px 10px 8px -5px rgba(252, 171, 171, 0.6),
-    inset -10px -10px 8px -6px rgba(176, 65, 65, 0.91);
-  box-shadow: inset 10px 10px 8px -5px rgba(252, 171, 171, 0.6),
-    inset -10px -10px 8px -6px rgba(176, 65, 65, 0.91);
+  cursor: pointer;
+  -webkit-box-shadow: inset 10px 10px 8px -5px rgba(199, 197, 197, 0.6),
+    inset -10px -10px 8px -6px rgba(53, 52, 52, 0.91);
+  -moz-box-shadow: inset 10px 10px 8px -5px rgba(85, 83, 83, 0.6),
+    inset -10px -10px 8px -6px rgba(53, 52, 52, 0.91);
+  box-shadow: inset 10px 10px 8px -5px rgba(32, 32, 32, 0.6),
+    inset -10px -10px 8px -6px rgba(53, 52, 52, 0.91);  
 }
 
 #abacus td.separator {
