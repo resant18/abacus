@@ -32,24 +32,13 @@ This project will be implemented with the following technologies:
 - Javascript and CSS for abacus computing logic and UI.
 - Webpack to bundle javascript files.
 
-In addition to the entry file, there will be three scripts involved in this project:
+In addition to the entry file, there will be three main scripts involved in this project:
 
 abacus.js: this script will handle the abacus computing logic.
-bead.js: this script will handle the bead 
-ui.js: this script will handle how to render the UI in DOM.
-
-## Implementation Timeline
-
-Day 1: Setup all necessary Node modules, including getting webpack up and running. Create the game setting page as landing screen, specified in the wireframe. Design the the scripts in object oriented way. Learn how to render beads and make interactive. Learn how to generate aritmathic problem in approriate way.
-
-Day 2: 
-
-Render the abacus framework with beads grid pattern.
-Make each beads moveable and update the number at the bottom of each bead column.
-Generate random arithmatic problem.
+math.js: this script will generate math problem.
+timer.js: this script will handle how to render the UI in DOM.
 
 
-Day 3: Create the abacus computing logic. Build the functions to process user input, display the calculation and check the answer. Create control to reset the problem, accept user input with their own arithmatic problem. Set timer to limit time the user use to answer a arithmatic problem.
 
 
 
