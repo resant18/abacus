@@ -1,5 +1,5 @@
 # Abacus Fun
-Abacus Simulator Kids Learning App. (Live here)[http://abacusfun.herokuapp.com/]
+Abacus Simulator Kids Learning App. [Live here](http://abacusfun.herokuapp.com/)
 
 ## Background
 
