@@ -1,6 +1,10 @@
 # Abacus Fun
 Abacus Simulator Kids Learning App. [Live here](http://abacusfun.herokuapp.com/)
 
+<div align="center">
+   <img width="75%" src="abacus-demo.gif" alt="Abacus demo">
+</div>
+
 ## Background
 
 Abacus, also called counting frame, is a calculating tool that was invented in ancient China. This Abacus Fun application will simulate the way abacus work and designed to guide kids learning simple arithmatic in a concret and fun way. It will calculate the sum everytime a bead is moved. In that way, the student will be able to check the answer. The application has two modes where the student can use the abacus freely in **free mode**, and challenge themselves in **challenge mode** with a timer.  
