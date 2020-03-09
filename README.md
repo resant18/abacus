@@ -2,7 +2,7 @@
 Abacus Simulator Kids Learning App. [Live here](http://abacusfun.herokuapp.com/)
 
 <div align="center">
-   <img width="75%" src="./wireframes/abacus-demo.gif" alt="Abacus demo">
+   <img width="75%" src="https://imgur.com/2GIsa3n.gif" alt="Abacus demo">
 </div>
 
 ## Background
