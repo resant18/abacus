@@ -206,3 +206,15 @@
   width: 60px;
   padding-top: 60px;
 }
+
+/* Tutorial animation */
+
+#frame-row {
+  position: relative;
+  width: 1175px;
+  margin: 0 auto;
+  height: 275px;
+  border: 3px solid black;
+  border-radius: 20px;
+  top: 215px;
+}
