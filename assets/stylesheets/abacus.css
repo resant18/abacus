@@ -188,24 +188,25 @@
 }
 
 .icon-close {
-  background-position: 0 0;
+  display: block;
+  width: 60px;
 }
 
-.icon-close:hover {
+/* .icon-close:hover {
   background-position: 0 -60px;
-}
+} */
 
-[class*="icon-"] {
+/* [class*="icon-"] {
   display: inline-block;
   background-image: url(../images/close.png);
   background-size: 60px 120px;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   /* vertical-align: bottom; */
-  overflow: hidden;
+  /* overflow: hidden;
   height: 0;
   width: 60px;
   padding-top: 60px;
-}
+} */
 
 /* Tutorial animation */
 
