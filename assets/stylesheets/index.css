@@ -117,7 +117,11 @@ main {
   left: 40%;
 }
 
-.big-circle {
+.big-circle span {
+  animation: infinite-rotation 125s infinite;
+}
+
+.big-circle-link {
   position: inherit;
   display: block;
   width: 200px;
@@ -131,28 +135,28 @@ main {
   animation: bigcircle 1.6s ease-in-out alternate;
 }
 
-.big-circle:nth-child(1) {
+.big-circle-link:nth-child(1) {
   top: 25%;
   left: 25%;
   cursor: pointer;
   opacity: 0.75;
 }
 
-.big-circle:nth-child(2) {  
-  top: 65%;
-  left: 65%;
+/* .big-circle-link:nth-child(2) {  
+  top: 75%;
+  left: 75%;
   cursor: pointer;
   opacity: 0.75;
 }
 
-.big-circle:nth-child(3) {  
+.big-circle-link:nth-child(3) {  
   top: 37%;
   left: 63%;
   width: 150px;
   height: 150px;
   cursor: pointer;
   opacity: 0.75;
-}
+} */
 
 @keyframes bigcircle {
   0% {
@@ -171,6 +175,7 @@ main {
     transform: scale(1);
   }
 }
+
 @keyframes infinite-rotation {
   from {
     -webkit-transform: rotate(0deg);
@@ -184,23 +189,37 @@ main {
   }
 }
 
-.big-cirlce-free-mode, .big-cicle-challenge {
+@keyframes infinite-rotation-counterclockwise {
+  from {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+.big-circle {
   position: relative;  
 }
 
-.big-cicle-challenge span {
+.big-circle span {
   position: absolute;
-  font-size: 2.5em;
-  top: 68px;
-  left: 17px;  
-  cursor: pointer;   
+  cursor: pointer;
+  font-size: 2em;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200px;
+  animation: infinite-rotation-counterclockwise 125s infinite;
 }
 
-.big-circle-free-mode span {
-  position: absolute;
-  font-size: 2em;
-  top: 72px;
-  left: 25px;  
-  cursor: pointer;
+.challenge {
+  left: 30%;
 }
 
