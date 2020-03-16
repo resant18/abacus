@@ -19,7 +19,7 @@ function reset() {
 function initializeBeads() {
   beads = getBeads();
   sums = getRowSums();
-  for (var i = 0; i < beads.length; i++) {
+  for (var i = 0; i < beads.length; i++) {    
     beads[i].onclick = moveBead;
   }
 }
@@ -38,6 +38,7 @@ function getTdFromTable(tableId, filter = param => true) {
     return unfilteredTds.filter(bead => filter);
   }
 }
+
 function moveBead(e) {
   if (isValueSet(this)) {
     clearValue(this);
@@ -81,6 +82,7 @@ function setValue(bead) {
 function updateValue(bead, newValue) {
   bead.dataset[DATA_CURRENT] = newValue;
   updateSum(bead.dataset["sum"], bead.parentElement.children);
+  console.log(bead.dataset["sum"]);
 }
 
 function getNextBead(bead) {
