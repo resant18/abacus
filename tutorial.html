@@ -113,9 +113,24 @@
             <td data-value="1" data-sum="sum-unit"></td>
             <td data-value="1" data-sum="sum-unit"></td>
           </tr>
-        </table>        
-        <div id="frame-row" class="step-0"></div>
+        </table>                
       </div>
+      <canvas id="canvas" width="1280" height="600">
+        Your browser does not support the canvas element.
+      </canvas>
     </div>
+    <script>
+      function getCursorPosition(canvas, event) {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        console.log("x: " + x + " y: " + y);
+      }
+
+      const canvas = document.getElementById("canvas");
+      canvas.addEventListener("mousedown", function(e) {
+        getCursorPosition(canvas, e);
+      });
+    </script>
   </body>
 </html>
