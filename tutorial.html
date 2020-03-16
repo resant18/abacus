@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/stylesheets/abacus.css" />
     <script src="./src/math.js"></script>    
     <script src="./src/abacus.js"></script>
+    <script src="./src/tutorial.js"></script>
   </head>
 
   <body onload="main()">    
@@ -113,7 +114,19 @@
             <td data-value="1" data-sum="sum-unit"></td>
             <td data-value="1" data-sum="sum-unit"></td>
           </tr>
-        </table>                
+        </table> 
+        <table id="place-value">
+          <tr>
+            <td id="sum-ten-million" data-value="0"></td>
+            <td id="sum-million" data-value="0"></td>
+            <td id="sum-hundred-thousand" data-value="0"></td>
+            <td id="sum-ten-thousand" data-value="0"></td>
+            <td id="sum-thousand" data-value="0"></td>
+            <td id="sum-hundred" data-value="0"></td>
+            <td id="sum-ten" data-value="0"></td>
+            <td id="sum-unit" data-value="0"></td>
+          </tr>
+        </table>               
       </div>
       <canvas id="canvas" width="1280" height="600">
         Your browser does not support the canvas element.
