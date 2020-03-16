@@ -4,6 +4,29 @@ const RENDER_DELAY = 100; //in ms
 
 var beads = [];
 var sums = [];
+var currentStep = 0;
+var stepOptions = {
+   0: {
+      message: "Welcome to the basic tutorial!",
+      elements: ["message"],
+      styles: ["font-size:1em"]
+   },
+   1: {
+      message: "Each abacus rod represents one digit in a number.",
+      elements: ["message"],
+      styles: ["font-size:0.75em"]
+   },
+   2: {
+      message: "The bottom beads are called earth beads (unit beads) and have value of one.",
+      elements: ["message"],
+      styles: ["font-size:0.75em"]
+   },
+   3: {
+      message: "The top beads are called heaven beads and have value of five.",
+      elements: ["message"],
+      styles: ["font-size:0.75em"]
+   }
+};
 
 function main() {
   initializeBeads();
@@ -135,6 +158,57 @@ async function sleep(msec) {
   });
 }
 
-function tutorial() {
-  console.log("Next");
+function getMessageText(stepOption) {
+  return stepOption.message ? stepOption.message : "";
+}
+
+function getElements(stepOption) {
+  return stepOption.element ? stepOption.element : [];
+}
+
+function getElementsStyle(stepOption) {
+   return stepOption.style ? stepOption.style : [];
+}
+
+function getElementsResetStyle(stepOption) {
+   return stepOption.resetStyle ? stepOption.resetStyle : [];
+}
+
+function setElementsStyle(elements, elementsStyle) {
+  for (let i=0; i < elements.length; i++) {
+    console.log(elements[i]);
+    console.log(elementsStyle[i]);
+    document.getElementById(elements[i]).style = elementsStyle[i];
+    
+  }
+}
+
+function showTutorial(step) {
+  let message = document.getElementById("message");
+  message.style.fontSize = "0.75em";
+  
+  currentStep += step;
+  validationCurrentStep();
+
+  let stepOption = stepOptions[currentStep];
+
+  if (stepOptions) {    
+    message.innerHTML = getMessageText(stepOption);
+    setElementsStyle(stepOption.elements, stepOption.styles);
+  }
+
+
+  console.log(currentStep);
+}
+
+function validationCurrentStep() {
+  let prevStep = document.getElementById("prev-step");
+  let nextStep = document.getElementById("next-step");
+
+  if (currentStep <= 0) {
+    currentStep = 0;
+    prevStep.style.display = "none";    
+  } else {
+    prevStep.style.display = "inline-block";    
+  }
 }

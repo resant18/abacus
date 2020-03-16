@@ -228,3 +228,8 @@
   position: absolute;
   right: 0;
 }
+
+#prev-step {
+  display: none;
+}
+

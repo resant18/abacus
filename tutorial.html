@@ -17,10 +17,10 @@
           <img alt="Close" src="./assets/images/close.png" width="60" height="57">
         </a>
         <div class="menu-item steps">
-          <button onclick="tutorial()">
+          <button id="prev-step" onclick="showTutorial(-1)">
             <img alt="Previous step" src="./assets/images/prev.png" width="60" height="57">          
           </button>
-          <button onclick="tutorial()">          
+          <button id="next-step" onclick="showTutorial(1)">          
             <img alt="Next step" src="./assets/images/next.png" width="60" height="57">
           </button>
         </div>
@@ -127,7 +127,7 @@
             <td id="sum-unit" data-value="0">0</td>
           </tr>
         </table>
-        <div id="frame-row"></div>
+        <div id="frame-row" class="step-0"></div>
       </div>
     </div>
   </body>
