@@ -12,10 +12,18 @@
 
   <body onload="main()">    
     <div id="main">
-      <div class="close-wrapper">
-        <a href="/" class="icon-close">
+      <div class="menu-wrapper">
+        <a href="/" class="menu-item icon-close">
           <img alt="Close" src="./assets/images/close.png" width="60" height="57">
         </a>
+        <div class="menu-item steps">
+          <button onclick="tutorial()">
+            <img alt="Previous step" src="./assets/images/prev.png" width="60" height="57">          
+          </button>
+          <button onclick="tutorial()">          
+            <img alt="Next step" src="./assets/images/next.png" width="60" height="57">
+          </button>
+        </div>
       </div>      
       <div id="text-wrapper">      
         <div>Welcome to the basic tutorial!</div>  

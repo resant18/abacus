@@ -182,7 +182,7 @@
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
-.close-wrapper {
+.menu-wrapper {
   position: relative;
   top: 30px;
 }
@@ -218,4 +218,13 @@
   border: 3px solid black;
   border-radius: 20px;
   top: 215px;
+}
+
+.menu-item {
+  float:left;
+}
+
+.menu-wrapper .steps {
+  position: absolute;
+  right: 0;
 }

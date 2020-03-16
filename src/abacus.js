@@ -134,3 +134,7 @@ async function sleep(msec) {
     setTimeout(resolve, msec);
   });
 }
+
+function tutorial() {
+  console.log("Next");
+}
