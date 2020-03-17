@@ -11,9 +11,10 @@ function main() {
   if (document.getElementById("addend1")) generateMathQuestion(3, 1); // 0 = substraction, 1 = addition
 }
 
-function reset() {
+function reset(callback) {
   resetBeads();
   if (document.getElementById("addend1")) generateMathQuestion(3, 1); // 0 = substraction, 1 = addition
+  callback();
 }
 
 function initializeBeads() {
@@ -39,12 +40,50 @@ function getTdFromTable(tableId, filter = param => true) {
   }
 }
 
-function moveBead(e) {
+function moveBead(e) {  
   if (isValueSet(this)) {
     clearValue(this);
   } else {
     setValue(this);
   }
+}
+
+function resetBeads() {
+   for (var i = 0; i < beads.length; i++) {
+      bead = beads[i];
+      if (!isSeparator(bead)) {
+         clearValue(bead);
+      }
+   }
+   document.getElementById("total").innerHTML = "";
+}
+
+function resetBeadsSync() {
+   for (var i = 0; i < beads.length; i++) {
+      bead = beads[i];
+      if (!isSeparator(bead)) {
+         clearValueSync(bead);
+      }
+   }
+   document.getElementById("total").innerHTML = "";
+}
+
+function renderClearValueSync(bead) {
+   if (isUpperBead(bead)) {
+      bead.style.top = -1 * bead.clientHeight + "px";
+   } else {
+      bead.style.top = "0px";
+      console.log("reset top");
+   }
+}
+
+function clearValueSync(bead) {
+   nextSibling = getNextBead(bead);
+   if (nextSibling && isValueSet(nextSibling)) {
+      delay = RENDER_DELAY + clearValue(nextSibling);
+   }
+   updateValue(bead, 0);
+   renderClearValueSync(bead);
 }
 
 function resetBeads() {
@@ -81,8 +120,7 @@ function setValue(bead) {
 
 function updateValue(bead, newValue) {
   bead.dataset[DATA_CURRENT] = newValue;
-  updateSum(bead.dataset["sum"], bead.parentElement.children);
-  console.log(bead.dataset["sum"]);
+  updateSum(bead.dataset["sum"], bead.parentElement.children);  
 }
 
 function getNextBead(bead) {
@@ -121,12 +159,12 @@ async function renderClearValue(bead, delay) {
     bead.style.top = -1 * bead.clientHeight + "px";
   } else {
     bead.style.top = "0px";
+    console.log('reset top');
   }
 }
 
 async function renderSetValue(bead, delay) {
   await sleep(delay);
-
   if (isUpperBead(bead)) {
     bead.style.top = "0px";
   } else {
