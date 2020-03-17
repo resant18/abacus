@@ -192,22 +192,6 @@
   width: 60px;
 }
 
-/* .icon-close:hover {
-  background-position: 0 -60px;
-} */
-
-/* [class*="icon-"] {
-  display: inline-block;
-  background-image: url(../images/close.png);
-  background-size: 60px 120px;
-  background-repeat: no-repeat; */
-  /* vertical-align: bottom; */
-  /* overflow: hidden;
-  height: 0;
-  width: 60px;
-  padding-top: 60px;
-} */
-
 /* Tutorial animation */
 
 .menu-item {
@@ -219,8 +203,32 @@
   right: 0;
 }
 
-#prev-step {
-  display: none;
+.prev-step {
+  background-image: url("../images/prev.png");
+  background-size: cover;
+  width: 60px;
+  height: 57px;
+}
+
+.prev-step-disabled {
+  background-image: url("../images/prev-grey.png");
+  background-size: cover;
+  width: 60px;
+  height: 57px;
+}
+
+.next-step {
+  background-image: url("../images/next.png");
+  background-size: cover;
+  width: 60px;
+  height: 57px;
+}
+
+.next-step-disabled {
+  background-image: url("../images/next-grey.png");
+  background-size: cover;
+  width: 60px;
+  height: 57px;
 }
 
 #canvas {

@@ -63,7 +63,7 @@ function setElementsStyle(elements, elementsStyle) {
 function showTutorial(step) {
    let message = document.getElementById("message");
 
-   currentStep += step;
+   currentStep += step;   
    validationCurrentStep();
 
    let stepOption = stepOptions[currentStep];
@@ -216,9 +216,19 @@ function validationCurrentStep() {
 
    if (currentStep <= 0) {
       currentStep = 0;
-      prevStep.style.display = "none";
+      prevStep.disabled = true;
+      nextStep.disabled = false;      
+   } 
+   else if (currentStep >= 6) {
+      currentStep = 6;
+      prevStep.disabled = false;
+      nextStep.disabled = true;
    } else {
-      prevStep.style.display = "inline-block";
-   }
+      prevStep.disabled = false;
+      nextStep.disabled = false;
+   } 
+
+   prevStep.className = prevStep.disabled ? "prev-step-disabled" : "prev-step";
+   nextStep.className = nextStep.disabled ? "next-step-disabled" : "next-step";
 }
 
