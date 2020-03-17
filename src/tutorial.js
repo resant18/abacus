@@ -80,8 +80,9 @@ function showTutorial(step) {
 }
 
 function drawTutorial(ctx, step) {
+   let sync = true;
    ctx.clearRect(0, 0, canvas.width, canvas.height);
-      console.log('step ' + step);
+   
    switch (step) {
       case 1:         
          ctx.lineWidth = 3;
@@ -99,7 +100,7 @@ function drawTutorial(ctx, step) {
          ctx.fillText("= 1", 1220, 388);
          break;
       case 3:   
-         resetBeadsSync();
+         resetBeads(sync);
          document.getElementById("sum-unit").style.color = "#ffffff";
 
          ctx.lineWidth = 4;
@@ -110,7 +111,7 @@ function drawTutorial(ctx, step) {
          ctx.fillText("= 5", 1220, 95);
          break;
       case 4:        
-         resetBeadsSync();
+         resetBeads(sync);
          beads[46].onclick();
          
          ctx.lineWidth = 4;
@@ -129,7 +130,7 @@ function drawTutorial(ctx, step) {
          document.getElementById("sum-unit").style.color = "#66ff00";
          break;
       case 5:     
-         resetBeadsSync();
+         resetBeads(sync);
          // setTimeout(beads[45].onclick(), 2000);
          // beads[47].onclick();
          beads[46].onclick();
@@ -162,7 +163,7 @@ function drawTutorial(ctx, step) {
          document.getElementById("sum-unit").style.color = "#66ff00";
          break;
       case 6:
-         resetBeadsSync;
+         resetBeads(sync);
          beads[42].onclick();
          beads[44].onclick();
          beads[38].onclick();

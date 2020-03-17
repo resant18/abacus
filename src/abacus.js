@@ -11,10 +11,9 @@ function main() {
   if (document.getElementById("addend1")) generateMathQuestion(3, 1); // 0 = substraction, 1 = addition
 }
 
-function reset(callback) {
+function reset() {
   resetBeads();
-  if (document.getElementById("addend1")) generateMathQuestion(3, 1); // 0 = substraction, 1 = addition
-  callback();
+  if (document.getElementById("addend1")) generateMathQuestion(3, 1); // 0 = substraction, 1 = addition  
 }
 
 function initializeBeads() {
@@ -40,6 +39,36 @@ function getTdFromTable(tableId, filter = param => true) {
   }
 }
 
+function getNextBead(bead) {
+   let nextSibling = bead.nextElementSibling;
+   if (isSeparator(nextSibling)) {
+      nextSibling = undefined;
+   }
+   return nextSibling;
+}
+
+function getPrevBead(bead) {
+   let prevSibling = bead.previousElementSibling;
+   if (isSeparator(bead)) {
+      prevSibling = undefined;
+   }
+   return prevSibling;
+}
+
+function isValueSet(bead) {
+   let value = bead.dataset[DATA_VALUE];
+   let state = bead.dataset[DATA_CURRENT];
+   return value == state;
+}
+
+function isUpperBead(bead) {
+   return bead.className == "upper";
+}
+
+function isSeparator(bead) {
+   return bead && bead.className == "separator";
+}
+
 function moveBead(e) {  
   if (isValueSet(this)) {
     clearValue(this);
@@ -48,119 +77,45 @@ function moveBead(e) {
   }
 }
 
-function resetBeads() {
+function resetBeads(sync = false) {
    for (var i = 0; i < beads.length; i++) {
       bead = beads[i];
       if (!isSeparator(bead)) {
-         clearValue(bead);
+         clearValue(bead, sync);
       }
    }
    document.getElementById("total").innerHTML = "";
 }
 
-function resetBeadsSync() {
-   for (var i = 0; i < beads.length; i++) {
-      bead = beads[i];
-      if (!isSeparator(bead)) {
-         clearValueSync(bead);
-      }
-   }
-   document.getElementById("total").innerHTML = "";
+function clearValue(bead, sync) {
+  let delay = 0;
+  nextSibling = getNextBead(bead);
+  if (nextSibling && isValueSet(nextSibling)) {
+    if (!sync) delay = RENDER_DELAY + clearValue(nextSibling);
+  }
+  updateValue(bead, 0);    
+  renderClearValue(bead, delay);
+  return delay;  
 }
 
-function renderClearValueSync(bead) {
+async function renderClearValue(bead, delay) {
+   await sleep(delay);
    if (isUpperBead(bead)) {
       bead.style.top = -1 * bead.clientHeight + "px";
    } else {
       bead.style.top = "0px";
-      console.log("reset top");
    }
 }
 
-function clearValueSync(bead) {
-   nextSibling = getNextBead(bead);
-   if (nextSibling && isValueSet(nextSibling)) {
-      delay = RENDER_DELAY + clearValue(nextSibling);
-   }
-   updateValue(bead, 0);
-   renderClearValueSync(bead);
-}
-
-function resetBeads() {
-  for (var i = 0; i < beads.length; i++) {
-    bead = beads[i];
-    if (!isSeparator(bead)) {
-      clearValue(bead);
-    }
-  }
-  document.getElementById("total").innerHTML = "";
-}
-
-function clearValue(bead) {
-  let delay = 0;
-  nextSibling = getNextBead(bead);
-  if (nextSibling && isValueSet(nextSibling)) {
-    delay = RENDER_DELAY + clearValue(nextSibling);
-  }
-  updateValue(bead, 0);
-  renderClearValue(bead, delay);
-  return delay;
-}
-
-function setValue(bead) {
-  let delay = 0;
+function setValue(bead, sync = false) {
+  let delay = 0;  
   prevSibling = getPrevBead(bead);
   if (prevSibling && !isValueSet(prevSibling)) {
-    delay = RENDER_DELAY + setValue(prevSibling);
+    if (!sync) delay = RENDER_DELAY + setValue(prevSibling);
   }
   updateValue(bead, bead.dataset[DATA_VALUE]);
   renderSetValue(bead, delay);
   return delay;
-}
-
-function updateValue(bead, newValue) {
-  bead.dataset[DATA_CURRENT] = newValue;
-  updateSum(bead.dataset["sum"], bead.parentElement.children);  
-}
-
-function getNextBead(bead) {
-  let nextSibling = bead.nextElementSibling;
-  if (isSeparator(nextSibling)) {
-    nextSibling = undefined;
-  }
-  return nextSibling;
-}
-
-function getPrevBead(bead) {
-  let prevSibling = bead.previousElementSibling;
-  if (isSeparator(bead)) {
-    prevSibling = undefined;
-  }
-  return prevSibling;
-}
-
-function isValueSet(bead) {
-  let value = bead.dataset[DATA_VALUE];
-  let state = bead.dataset[DATA_CURRENT];
-  return value == state;
-}
-
-function isUpperBead(bead) {
-  return bead.className == "upper";
-}
-
-function isSeparator(bead) {
-  return bead && bead.className == "separator";
-}
-
-async function renderClearValue(bead, delay) {
-  await sleep(delay);
-  if (isUpperBead(bead)) {
-    bead.style.top = -1 * bead.clientHeight + "px";
-  } else {
-    bead.style.top = "0px";
-    console.log('reset top');
-  }
 }
 
 async function renderSetValue(bead, delay) {
@@ -170,6 +125,11 @@ async function renderSetValue(bead, delay) {
   } else {
     bead.style.top = -1 * bead.clientHeight + "px";
   }
+}
+
+function updateValue(bead, newValue) {
+   bead.dataset[DATA_CURRENT] = newValue;
+   updateSum(bead.dataset["sum"], bead.parentElement.children);
 }
 
 async function sleep(msec) {
