@@ -130,12 +130,9 @@ function drawTutorial(ctx, step) {
          document.getElementById("sum-unit").style.color = "#66ff00";
          break;
       case 5:     
-         resetBeads(sync);
-         // setTimeout(beads[45].onclick(), 2000);
-         // beads[47].onclick();
+         resetBeads(sync);         
          beads[46].onclick();
-         beads[42].onclick();
-         // beads[38].onclick();
+         beads[42].onclick();         
 
          ctx.lineWidth = 4;
          ctx.strokeStyle = "#66ff00";
@@ -181,19 +178,32 @@ function drawTutorial(ctx, step) {
          ctx.lineTo(1178, 178);
          ctx.stroke();
          ctx.font = "36px Georgia";
-         ctx.fillText("= 5", 1230, 158);
+         ctx.fillText("= 5", 1235, 158);
 
-         // ctx.moveTo(1178, 200);
-         // ctx.lineTo(1210, 200);
-         // ctx.lineTo(1210, 284);
-         // ctx.lineTo(1220, 289);
-         // ctx.lineTo(1210, 294);
-         // ctx.lineTo(1210, 378);
-         // ctx.lineTo(1178, 378);
-         // ctx.font = "36px Georgia";
-         // ctx.fillText("= 5", 1230, 298);
+         ctx.moveTo(1178, 200);
+         ctx.lineTo(1210, 200);
+         ctx.lineTo(1210, 225);
+         ctx.lineTo(1220, 230);
+         ctx.lineTo(1210, 235);
+         ctx.lineTo(1210, 260);
+         ctx.lineTo(1178, 260);
+         ctx.stroke();
+         ctx.font = "36px Georgia";
+         ctx.fillText("= 1", 1235, 240);
+
+         ctx.moveTo(1028, 200);
+         ctx.lineTo(1050, 200);
+         ctx.lineTo(1050, 225);
+         ctx.lineTo(1060, 230);
+         ctx.lineTo(1050, 235);
+         ctx.lineTo(1050, 260);
+         ctx.lineTo(1028, 260);
+         ctx.stroke();
+         ctx.font = "36px Georgia";
+         ctx.fillText("= 1", 1075, 240);
 
          document.getElementById("sum-unit").style.color = "#66ff00";
+         document.getElementById("sum-ten").style.color = "#66ff00";
          break;
       default:
          break;
