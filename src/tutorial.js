@@ -17,23 +17,23 @@ var stepOptions = {
    },
    3: {
       message: "The top beads are called heaven beads and have value of five.",
-      elements: ["message"],
-      styles: ["font-size:0.75em"]
+      elements: ["message", "sum-unit"],
+      styles: ["font-size:0.75em", "color:#ffffff"]
    },
    4: {
       message: "To represent numbers, move beads to the center beam. For example, this is 3.",
-      elements: ["message"],
-      styles: ["font-size:0.75em"]
+      elements: ["message", "sum-unit"],
+      styles: ["font-size:0.75em", "color:#66ff00"]
    },
    5: {
       message: "This represents 8 (=5 + 3).",
-      elements: ["message"],
-      styles: ["font-size:0.75em"]
+      elements: ["message", "sum-ten"],
+      styles: ["font-size:0.75em", "color:#ffffff"]
    },
    6: {
       message: "This represents 16 (=10 + 5 + 1).",
-      elements: ["message"],
-      styles: ["font-size:0.75em"]
+      elements: ["message", "sum-ten"],
+      styles: ["font-size:0.75em", "color:#66ff00"]
    }
 };
 
@@ -100,8 +100,7 @@ function drawTutorial(ctx, step) {
          ctx.fillText("= 1", 1220, 388);
          break;
       case 3:   
-         resetBeads(sync);
-         document.getElementById("sum-unit").style.color = "#ffffff";
+         resetBeads(sync);         
 
          ctx.lineWidth = 4;
          ctx.strokeStyle = "#66ff00";
@@ -117,17 +116,16 @@ function drawTutorial(ctx, step) {
          ctx.lineWidth = 4;
          ctx.strokeStyle = "#66ff00";
          ctx.beginPath();
-         ctx.moveTo(1178, 200);
-         ctx.lineTo(1210, 200);
-         ctx.lineTo(1210, 284);
-         ctx.lineTo(1220, 289);
-         ctx.lineTo(1210, 294);
-         ctx.lineTo(1210, 378);
-         ctx.lineTo(1178, 378);
+         ctx.moveTo(1178, 205);
+         ctx.lineTo(1210, 205);
+         ctx.lineTo(1210, 291);
+         ctx.lineTo(1220, 296);
+         ctx.lineTo(1210, 301);
+         ctx.lineTo(1210, 385);
+         ctx.lineTo(1178, 385);
          ctx.stroke();
          ctx.font = "36px Georgia";
-         ctx.fillText("= 3", 1230, 298);
-         document.getElementById("sum-unit").style.color = "#66ff00";
+         ctx.fillText("= 3", 1230, 300);         
          break;
       case 5:     
          resetBeads(sync);         
@@ -137,27 +135,26 @@ function drawTutorial(ctx, step) {
          ctx.lineWidth = 4;
          ctx.strokeStyle = "#66ff00";
          ctx.beginPath();
-         ctx.moveTo(1178, 200);
-         ctx.lineTo(1210, 200);
-         ctx.lineTo(1210, 284);
-         ctx.lineTo(1220, 289);
-         ctx.lineTo(1210, 294);
-         ctx.lineTo(1210, 378);
-         ctx.lineTo(1178, 378);
+         ctx.moveTo(1178, 205);
+         ctx.lineTo(1210, 205);
+         ctx.lineTo(1210, 289);
+         ctx.lineTo(1220, 294);
+         ctx.lineTo(1210, 299);
+         ctx.lineTo(1210, 383);
+         ctx.lineTo(1178, 383);
          ctx.font = "36px Georgia";
-         ctx.fillText("= 3", 1230, 298);
+         ctx.fillText("= 3", 1230, 300);
 
-         ctx.moveTo(1178, 120);
-         ctx.lineTo(1210, 120);
-         ctx.lineTo(1210, 144);
-         ctx.lineTo(1220, 149);
-         ctx.lineTo(1210, 154);
-         ctx.lineTo(1210, 178);
-         ctx.lineTo(1178, 178);
+         ctx.moveTo(1178, 125);
+         ctx.lineTo(1210, 125);
+         ctx.lineTo(1210, 149);
+         ctx.lineTo(1220, 154);
+         ctx.lineTo(1210, 159);
+         ctx.lineTo(1210, 183);
+         ctx.lineTo(1178, 183);
          ctx.stroke();
          ctx.font = "36px Georgia";
-         ctx.fillText("= 5", 1230, 158);
-         document.getElementById("sum-unit").style.color = "#66ff00";
+         ctx.fillText("= 5", 1230, 160);         
          break;
       case 6:
          resetBeads(sync);
@@ -169,16 +166,16 @@ function drawTutorial(ctx, step) {
          ctx.strokeStyle = "#66ff00";
          ctx.beginPath();         
 
-         ctx.moveTo(1178, 120);
-         ctx.lineTo(1210, 120);
-         ctx.lineTo(1210, 144);
-         ctx.lineTo(1220, 149);
-         ctx.lineTo(1210, 154);
-         ctx.lineTo(1210, 178);
-         ctx.lineTo(1178, 178);
+         ctx.moveTo(1178, 125);
+         ctx.lineTo(1210, 125);
+         ctx.lineTo(1210, 149);
+         ctx.lineTo(1220, 154);
+         ctx.lineTo(1210, 159);
+         ctx.lineTo(1210, 183);
+         ctx.lineTo(1178, 183);
          ctx.stroke();
          ctx.font = "36px Georgia";
-         ctx.fillText("= 5", 1235, 158);
+         ctx.fillText("= 5", 1230, 160);
 
          ctx.moveTo(1178, 200);
          ctx.lineTo(1210, 200);
@@ -210,7 +207,8 @@ function drawTutorial(ctx, step) {
    }
 }
 
-function validationCurrentStep() {
+function validationCurrentStep() {   
+   let totalSteps = Object.values(stepOptions).length;   
    let prevStep = document.getElementById("prev-step");
    let nextStep = document.getElementById("next-step");
 
@@ -219,8 +217,8 @@ function validationCurrentStep() {
       prevStep.disabled = true;
       nextStep.disabled = false;      
    } 
-   else if (currentStep >= 6) {
-      currentStep = 6;
+   else if (currentStep >= totalSteps - 1) {
+      currentStep = totalSteps - 1;
       prevStep.disabled = false;
       nextStep.disabled = true;
    } else {
