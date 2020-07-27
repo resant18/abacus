@@ -41,9 +41,3 @@ In addition to the entry file, there will be three main scripts involved in this
 abacus.js: this script will handle the abacus computing logic.
 math.js: this script will generate math problem.
 timer.js: this script will handle how to render the UI in DOM.
-
-
-
-
-
-## Bonus features
